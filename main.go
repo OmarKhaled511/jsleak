@@ -63,8 +63,11 @@ func request(fullurl string, statusCode bool) string {
 
 func regexGrep(content string, Burl string) {
 	regex_map := map[string]string{
-		"Google Bucket" : `[a-z0-9.-]+\\.storage\\.googleapis\\.com|//storage\\.googleapis\\.com/[a-z0-9._-]+`,
-		"S3 Bucket" : `[a-z0-9.-]+\\.s3\\.amazonaws\\.com|[a-z0-9.-]+\\.s3-[a-z0-9-]\\.amazonaws\\.com|[a-z0-9.-]+\\.s3-website[.-](eu|ap|us|ca|sa|cn)|//s3\\.amazonaws\\.com/[a-z0-9._-]+|//s3-[a-z0-9-]+\\.amazonaws\\.com/[a-z0-9._-]+`,
+		"S3 Bucket0": `//s3-[a-z0-9-]+\\.amazonaws\\.com/[a-z0-9._-]+`,
+		"S3 Bucket1": `//s3\\.amazonaws\\.com/[a-z0-9._-]+`,
+		"S3 Bucket2": `[a-z0-9.-]+\\.s3-website[.-](eu|ap|us|ca|sa|cn)`,
+		"S3 Bucket3": `[a-z0-9.-]+\\.s3-[a-z0-9-]\\.amazonaws\\.com`,
+		"S3 Bucket4": `[a-z0-9.-]+\\.s3\\.amazonaws\\.com`,
 		"Adafruit API Key" : `(?i)(?:adafruit)(?:[0-9a-z\-_\t .]{0,20})(?:[\s|']|[\s|"]){0,3}(?:=|>|:=|\|\|:|<=|=>|:)(?:'|\"|\s|=|\x60){0,5}([a-z0-9_-]{32})(?:['|\"|\n|\r|\s|\x60|;]|$)`,
 		"Adobe Client ID (OAuth Web)" : `(?i)(?:adobe)(?:[0-9a-z\-_\t .]{0,20})(?:[\s|']|[\s|"]){0,3}(?:=|>|:=|\|\|:|<=|=>|:)(?:'|\"|\s|=|\x60){0,5}([a-f0-9]{32})(?:['|\"|\n|\r|\s|\x60|;]|$)`,
 		"Adobe Client Secret" : `(?i)\b((p8e-)(?i)[a-z0-9]{32})(?:['|\"|\n|\r|\s|\x60|;]|$)`,
